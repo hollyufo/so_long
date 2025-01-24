@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:57:27 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/24 17:04:25 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:02:14 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_strlen(const char *s)
 	len = 0;
 	if (!s)
 		return (0);
-	while (s[len])
+	while (s[len] != '\0' && s[len] != '\n')
 		len++;
 	return (len);
 }

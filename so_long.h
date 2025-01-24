@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/24 18:09:02 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:58:24 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@
 
 typedef struct s_long
 {
-    void *mlx;
-    void *img;
-    void *win;
-	char **map;
+    void    *mlx;
+    void    *img;
+    void    *win;
+	char    **map;
+    int     map_len;
+    int     map_width;
 }               t_long;
 
 char		*get_next_line(int fd);
@@ -50,4 +52,8 @@ void		ft_putnbr_fd(int n, int fd, int *count);
 void		ft_putnbr_unsigned_fd(unsigned int n, int fd, int *count);
 void		ft_putptr_fd(void *ptr, int fd, int *count);
 void		ft_puthex(unsigned long num, int fd, char case_type, int *count);
+void        get_map(t_long *lng, int fd);
+void        map_dimensions(t_long *lng, int fd);
+// int         is_map_rectangular();
+// int         is_map_valid(fd);
 #endif
