@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/24 22:47:01 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/25 00:21:03 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,25 @@
 void get_map(t_long *lng, int fd)
 {
     int i = 0;
-
-    // Get the map dimensions first
-    map_dimensions(lng, fd);
     
-    // Allocate memory for map rows (one pointer per row)
-    lng->map = malloc(sizeof(char *) * (lng->map_len + 1));  // Allocate one extra space for NULL terminator
-
-    if (lng->map == NULL)
+    map_dimensions(lng, fd);
+    lng->map = malloc(sizeof(char *) * lng->map_len + 1);
+	if (lng->map == NULL)
     {
-        // Handle memory allocation failure
         perror("malloc failed");
         return;
     }
-
-    // Read lines and store them in the map
     while (i < lng->map_len)
     {
         lng->map[i] = get_next_line(fd);
         
         if (lng->map[i] == NULL)
         {
-            break;  // Stop if there is an error or EOF
+            break;
         }
-
         i++;
     }
-
-    // Null-terminate the map (after the last valid row)
-    lng->map[i] = NULL;  // This will be the last pointer in the array
-
+    lng->map[i] = NULL;
 }
 void map_dimensions(t_long *lng, int fd )
 {

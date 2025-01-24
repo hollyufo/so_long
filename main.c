@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/24 22:43:13 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/25 00:17:48 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	ft_printf("len is %i\n", lng->map_len);
 	while (i <= lng->map_len)
 	{
-		ft_printf("%s", lng->map[i]);
+		printf("%s", lng->map[i]);
 		i++;
 	}
 	while (lng->map[i])
