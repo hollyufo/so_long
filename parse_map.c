@@ -6,17 +6,15 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/25 13:10:29 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:49:06 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 void get_map(t_long *lng, int fd) {
+
     int i = 0;
-
-    map_dimensions(lng, fd);
-
-    // Allocate memory for the map
+    
     lng->map = malloc(sizeof(char *) * (lng->map_len + 1));
     if (!lng->map) {
         perror("Failed to allocate memory for map");
@@ -31,25 +29,49 @@ void get_map(t_long *lng, int fd) {
             break;
         }
     }
-    lng->map[i] = NULL; // Null-terminate the map array
+    lng->map[i] = NULL;
 }
 
 void map_dimensions(t_long *lng, int fd) {
     char *line;
     int map_len = 0;
-
-    // Reset file descriptor position
+    
     lseek(fd, 0, SEEK_SET);
 
     while ((line = get_next_line(fd)) != NULL) {
         if (map_len == 0) {
-            lng->map_width = ft_strlen(line) - 1; // Exclude newline
+            lng->map_width = ft_strlen(line) - 1;
         }
         free(line);
         map_len++;
     }
     lng->map_len = map_len;
 
-    // Reset file descriptor position
     lseek(fd, 0, SEEK_SET);
+}
+int	validate_map_boundaries(t_long *lng)
+{
+    int i;
+	int j;
+
+	i = 0;
+
+	while (i <= lng->map_len)
+	{
+		printf("inside the first while");
+		if (i == 0 || i == lng->map_len)
+		{
+			j = 0;
+			while (lng->map[i][j])
+			{
+				if (lng->map[i][j] != '1')
+				{
+					return (0);
+				}
+				j++;
+			}
+		}
+		i++;
+	}
+	return(1);
 }

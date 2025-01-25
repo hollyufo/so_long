@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/24 20:13:46 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:44:40 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ void		ft_putptr_fd(void *ptr, int fd, int *count);
 void		ft_puthex(unsigned long num, int fd, char case_type, int *count);
 void        get_map(t_long *lng, int fd);
 void        map_dimensions(t_long *lng, int fd);
-// int         is_map_rectangular();
-// int         is_map_valid(fd);
+int         validate_map_boundaries(t_long *lng);
 #endif

@@ -6,16 +6,18 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/25 13:11:23 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:52:52 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int ac, char **av) {
+int main(int ac, char **av) 
+{
     t_long *lng;
     int i = 0;
     int fd;
+    int valid;
 
 	// lng = malloc(sizeof(t_long));
 	// lng->mlx = mlx_init();
@@ -40,19 +42,29 @@ int main(int ac, char **av) {
         free(lng);
         return (1);
     }
-
+    map_dimensions(lng, fd);
+    close(fd);
+    fd = open(av[1], O_RDONLY);
     get_map(lng, fd);
 
     // Print map dimensions
     printf("Width is %i\n", lng->map_width);
     printf("Length is %i\n", lng->map_len);
-
+    valid = validate_map_boundaries(lng);
+    printf("valid is : %d\n", valid);
+    if (valid)
+    {
+        printf("map vaid a7777");
+    }
+    else
+    {
+        ft_printf("map is not valid a zabi ");
+    }
     // Print the map
     for (i = 0; i < lng->map_len; i++) {
         printf("%s\n", lng->map[i]);
         free(lng->map[i]); // Free each map line
     }
-
     // Free the map array and close the file
     free(lng->map);
     close(fd);
