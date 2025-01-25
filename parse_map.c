@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/25 16:49:06 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:29:35 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int	validate_map_boundaries(t_long *lng)
 	int j;
 
 	i = 0;
+    int len;
 
-	while (i <= lng->map_len)
+	while (i < lng->map_len)
 	{
-		printf("inside the first while");
-		if (i == 0 || i == lng->map_len)
+		if (i == 0 || i == lng->map_len - 1)
 		{
-			j = 0;
+		    j = 0;
 			while (lng->map[i][j])
 			{
 				if (lng->map[i][j] != '1')
@@ -71,6 +71,28 @@ int	validate_map_boundaries(t_long *lng)
 				j++;
 			}
 		}
+        else
+        {
+            if (lng->map[i] == NULL) // Check if the row is NULL
+            {
+                printf("Error: Map row %d is NULL\n", i);
+                return (0);
+            }
+
+            int len = ft_strlen(lng->map[i]) - 1;
+            if (len != lng->map_width) // Ensure row length matches the expected width
+            {
+                printf("Error: Map row %d has inconsistent width (expected %d, got %d)\n", i, lng->map_width, len);
+                return (0);
+            }
+
+            // Check the first and last characters of the row
+            if (lng->map[i][0] != '1' || lng->map[i][len] != '1')
+            {
+                printf("Error: Map row %d boundaries are invalid\n", i);
+                return (0);
+            }
+        }
 		i++;
 	}
 	return(1);

@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/25 16:52:52 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:20:22 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int main(int ac, char **av)
     printf("valid is : %d\n", valid);
     if (valid)
     {
-        printf("map vaid a7777");
+        printf("map vaid a7777\n");
     }
     else
     {
-        ft_printf("map is not valid a zabi ");
+        ft_printf("map is not valid a zabi\n");
     }
     // Print the map
     for (i = 0; i < lng->map_len; i++) {
