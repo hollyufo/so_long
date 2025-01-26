@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/26 22:44:17 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:24:46 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void get_map(t_long *lng, int fd) {
 void map_dimensions(t_long *lng, int fd) {
     char *line;
     int map_len = 0;
+    lng->map_width = 0;
     while ((line = get_next_line(fd)) != NULL) {
         if (map_len == 0) {
             lng->map_width = ft_strlen(line) - 1;
