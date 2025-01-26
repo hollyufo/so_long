@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/25 22:20:22 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/26 22:49:17 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main(int ac, char **av)
     int i = 0;
     int fd;
     int valid;
+    int rec;
 
-	// lng = malloc(sizeof(t_long));
 	// lng->mlx = mlx_init();
 	// lng->win = mlx_new_window(lng->mlx, 1920, 1080, "Hello world!");
 	// mlx_loop(lng->mlx);

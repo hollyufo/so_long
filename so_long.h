@@ -6,14 +6,14 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/25 22:25:12 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/26 22:48:22 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG
 #define SO_LONG
 
-//#include <mlx.h>
+#include <mlx.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
