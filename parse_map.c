@@ -6,11 +6,12 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/26 23:24:46 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:57:21 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void get_map(t_long *lng, int fd) {
 
     int i = 0;
@@ -40,6 +41,11 @@ void map_dimensions(t_long *lng, int fd) {
         }
         free(line);
         map_len++;
+    }
+    if (map_len == 0) {
+        lng->map_width = 0;
+        lng->map_len = 0;
+        return;
     }
     lng->map_len = map_len;
 }
@@ -76,4 +82,32 @@ int	validate_map_boundaries(t_long *lng)
 		i++;
 	}
 	return(1);
+}
+
+int validate_map_elements(t_long *lng)
+{
+    int i, j;
+    int count_p = 0, count_e = 0, count_c = 0;
+
+    i = 0;
+    while (i < lng->map_len)
+    {
+        j = 0;
+        while (lng->map[i][j])
+        {
+            if (lng->map[i][j] == 'P')
+                count_p++;
+            else if (lng->map[i][j] == 'E')
+                count_e++;
+            else if (lng->map[i][j] == 'C')
+                count_c++;
+            j++;
+        }
+        i++;
+    }
+    
+    if (count_p == 1 && count_e == 1 && count_c >= 1) {
+        return 1;
+    }
+    return 0;
 }
