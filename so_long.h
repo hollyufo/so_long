@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/26 22:48:22 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:28:17 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <stdint.h>
 # include <limits.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif 
 
 typedef struct s_long
@@ -55,4 +55,6 @@ void		ft_puthex(unsigned long num, int fd, char case_type, int *count);
 void        get_map(t_long *lng, int fd);
 void        map_dimensions(t_long *lng, int fd);
 int         validate_map_boundaries(t_long *lng);
+int         validate_map_elements(t_long *lng);
+void        initialise_validate_map(int ac, char *str, t_long *lng);
 #endif

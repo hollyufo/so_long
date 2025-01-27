@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/26 23:57:21 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:28:35 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ void get_map(t_long *lng, int fd) {
         perror("Failed to allocate memory for map");
         return;
     }
-    for (i = 0; i < lng->map_len; i++) {
+    while (i < lng->map_len)
+    {
         lng->map[i] = get_next_line(fd);
         if (!lng->map[i]) {
             perror("Failed to read line");
             break;
         }
+        i++;
     }
-    lng->map[i] = NULL;
+    lng->map[i] = NULL;    
 }
 
 void map_dimensions(t_long *lng, int fd) {
@@ -110,4 +112,39 @@ int validate_map_elements(t_long *lng)
         return 1;
     }
     return 0;
+}
+
+void initialise_validate_map(int ac, char *str, t_long *lng)
+{
+    int fd;
+    int valid;
+    
+    if (ac != 2) {
+        fprintf(stderr, "Usage: %s <filename>\n", str[0]);
+        return (1);
+    }
+    fd = open(str, O_RDONLY);
+    if (fd < 0) {
+        perror("Failed to open file");
+        free(lng);
+        return (1);
+    }
+    map_dimensions(lng, fd);
+    close(fd);
+    fd = open(str, O_RDONLY);
+    get_map(lng, fd);
+    // Print map dimensions
+    printf("Width is %i\n", lng->map_width);
+    printf("Length is %i\n", lng->map_len);
+    valid = validate_map_boundaries(lng);
+    printf("valid is : %d\n", valid);
+    if (valid && validate_map_elements(lng))
+    {
+        printf("map vaid a7777\n");
+    }
+    else
+    {
+        ft_printf("map is not valid a zabi\n");
+    }
+    close(fd);
 }
