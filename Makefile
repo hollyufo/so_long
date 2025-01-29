@@ -3,8 +3,8 @@ SRC = main.c get_next_line.c gnl_utils.c ft_printf.c ft_printf_utils.c parse_map
 OBJ = $(SRC:.c=.o)
 CC = cc
 # CFLAGS = -fsanitize=address -g3
-MLX = ./minilibx-linux
-LIBS = -L$(MLX) -lmlx -lXext -lX11 -lm -fsanitize=address -g3
+#MLX = ./minilibx-linux
+#LIBS = -L$(MLX) -lmlx -lXext -lX11 -lm -fsanitize=address -g3
 
 all: $(NAME)
 

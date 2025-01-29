@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/27 16:28:35 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:15:21 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,38 +113,52 @@ int validate_map_elements(t_long *lng)
     }
     return 0;
 }
-
-void initialise_validate_map(int ac, char *str, t_long *lng)
+int initialise_validate_map(int ac, char *str, t_long *lng)
 {
     int fd;
-    int valid;
-    
+
+    // Check if the correct number of arguments is provided
     if (ac != 2) {
-        fprintf(stderr, "Usage: %s <filename>\n", str[0]);
-        return (1);
+        fprintf(stderr, "Usage: %s <map_file>\n", str);
+        return 0;
     }
+
+    // Open the map file
     fd = open(str, O_RDONLY);
     if (fd < 0) {
-        perror("Failed to open file");
-        free(lng);
-        return (1);
+        perror("Failed to open map file");
+        return 0;
     }
+
+    // Get map dimensions
     map_dimensions(lng, fd);
+
+    // Close and reopen the file to reset the file pointer
     close(fd);
     fd = open(str, O_RDONLY);
+    if (fd < 0) {
+        perror("Failed to reopen map file");
+        return 0;
+    }
+
+    // Read the map content
     get_map(lng, fd);
-    // Print map dimensions
-    printf("Width is %i\n", lng->map_width);
-    printf("Length is %i\n", lng->map_len);
-    valid = validate_map_boundaries(lng);
-    printf("valid is : %d\n", valid);
-    if (valid && validate_map_elements(lng))
-    {
-        printf("map vaid a7777\n");
-    }
-    else
-    {
-        ft_printf("map is not valid a zabi\n");
-    }
+
+    // Close the file
     close(fd);
+
+    // Validate map boundaries
+    if (!validate_map_boundaries(lng)) {
+        fprintf(stderr, "Map boundaries are invalid\n");
+        return 0;
+    }
+
+    // Validate map elements
+    if (!validate_map_elements(lng)) {
+        fprintf(stderr, "Map elements are invalid\n");
+        return 0;
+    }
+
+    // If everything is valid
+    return 1;
 }
