@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:09:49 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/01/24 18:10:21 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/06 22:47:44 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,26 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (count);
+}
+
+char	*ft_strdup(const char *src)
+{
+	size_t	len;
+	char	*dub;
+
+	if (src == NULL)
+	{
+		dub = (char *)ft_calloc(1, sizeof(char));
+		if (dub == NULL)
+			return (NULL);
+		return (dub);
+	}
+	len = ft_strlen(src);
+	dub = (char *)ft_calloc(len + 1, sizeof(char));
+	if (dub == NULL)
+	{
+		return (NULL);
+	}
+	ft_strlcpy(dub, src, len + 1);
+	return (dub);
 }
