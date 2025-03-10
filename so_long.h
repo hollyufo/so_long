@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/08 15:09:09 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/10 20:18:29 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void        map_panic_exit(t_long *lng, const char *error_msg);
 void        map_dimensions(t_long *lng, int fd);
 char        *ft_strdup(const char *src);
 int         is_valid_path(t_long *lng);
-
+int         handle_keyboard(int keycode, t_long *lng);
 #endif
