@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/11 00:56:56 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:33:03 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,6 +240,8 @@ int main(int ac, char **av)
     if (!lng->win)
         return (printf("Error\nFailed to create window\n"),
                 map_panic_exit(lng, "Error\nFailed to create a window"), 1);
+    load_textures(lng);
+    render_map(lng);
     printf("map len : %d\n", lng->map_len);
     mlx_hook(lng->win, DestroyNotify, 0, mlx_quit, &lng);
     mlx_key_hook(lng->win, handle_keyboard, lng);

@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 00:43:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/11 01:37:34 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:49:18 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ int load_textures(t_long *lng)
     if (!lng->wall || !lng->player || !lng->collectible || !lng->exit || !lng->floor)
         return (printf("Error\nFailed to allocate memory for textures\n"), 1);
     
-    // Load images (replace paths with your actual image paths)
-    lng->wall->img = mlx_xpm_file_to_image(lng->mlx, "textures/background.xpm", 
+    lng->wall->img = mlx_xpm_file_to_image(lng->mlx, "./textures/wall.xpm", 
                                         &lng->wall->width, &lng->wall->height);
-    lng->player->img = mlx_xpm_file_to_image(lng->mlx, "textures/player.xpm", 
+    lng->player->img = mlx_xpm_file_to_image(lng->mlx, "./textures/player.xpm", 
                                         &lng->player->width, &lng->player->height);
-    lng->collectible->img = mlx_xpm_file_to_image(lng->mlx, "textures/collectible.xpm", 
+    lng->collectible->img = mlx_xpm_file_to_image(lng->mlx, "./textures/collectible.xpm", 
                                         &lng->collectible->width, &lng->collectible->height);
-    lng->exit->img = mlx_xpm_file_to_image(lng->mlx, "textures/exit.xpm", 
+    lng->exit->img = mlx_xpm_file_to_image(lng->mlx, "./textures/exit.xpm", 
                                         &lng->exit->width, &lng->exit->height);
-    lng->floor->img = mlx_xpm_file_to_image(lng->mlx, "textures/floor.xpm", 
+    lng->floor->img = mlx_xpm_file_to_image(lng->mlx, "./textures/background.xpm", 
                                         &lng->floor->width, &lng->floor->height);
     
     // Check if any image failed to load
