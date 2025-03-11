@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:54:57 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/08 15:09:37 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:10:33 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void flood_fill(char **map, int y, int x, t_fill_data *data)
     if (y < 0 || x < 0 || y >= data->rows || x >= data->cols || 
         map[y][x] == '1' || map[y][x] == 'V')
         return;
-
+        
     // Handle collectible
     if (map[y][x] == 'C')
         data->collected++;

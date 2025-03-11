@@ -6,13 +6,14 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/10 20:18:29 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/11 00:58:34 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG
 #define SO_LONG
 
+# include <X11/X.h>
 #include <mlx.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -25,6 +26,12 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif 
+typedef struct s_img
+{
+    void	*img;
+    int		width;
+    int		height;
+}   t_img;
 
 typedef struct s_long
 {
@@ -38,6 +45,11 @@ typedef struct s_long
     int     player_y;
     int     collectible_count;
     int     exit_found;
+    t_img    *wall;
+    t_img    *player;
+    t_img    *collectible;
+    t_img    *exit;
+    t_img    *floor;
 }               t_long;
 
 typedef struct s_fill_data
@@ -77,4 +89,7 @@ void        map_dimensions(t_long *lng, int fd);
 char        *ft_strdup(const char *src);
 int         is_valid_path(t_long *lng);
 int         handle_keyboard(int keycode, t_long *lng);
+int load_textures(t_long *lng);
+void render_tile(t_long *lng, int x, int y);
+void render_map(t_long *lng);
 #endif

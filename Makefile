@@ -1,5 +1,5 @@
 NAME = so_long
-SRC = main.c get_next_line.c gnl_utils.c ft_printf.c ft_printf_utils.c parse_map.c map_path.c
+SRC = main.c get_next_line.c gnl_utils.c ft_printf.c ft_printf_utils.c parse_map.c map_path.c render_map.c
 OBJ = $(SRC:.c=.o)
 CC = cc
  CFLAGS = -fsanitize=address -g3
