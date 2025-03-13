@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/11 19:33:14 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:35:51 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void        map_dimensions(t_long *lng, int fd);
 char        *ft_strdup(const char *src);
 int         is_valid_path(t_long *lng);
 int         handle_keyboard(int keycode, t_long *lng);
-int load_textures(t_long *lng);
-void render_tile(t_long *lng, int x, int y);
-void render_map(t_long *lng);
+int         load_textures(t_long *lng);
+void        render_tile(t_long *lng, int x, int y);
+void        render_map(t_long *lng);
+int         mlx_quit(t_long *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/10 21:22:34 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:39:57 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,6 @@ void map_dimensions(t_long *lng, int fd)
     }
     lng->map_len = map_len;
 }
-
-
 
 void get_map(t_long *lng, int fd)
 {
