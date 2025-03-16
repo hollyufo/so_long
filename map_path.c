@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:54:57 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/10 23:10:33 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:43:32 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int is_valid_path(t_long *lng)
     // Create a copy of the map
     map_copy = duplicate_map(lng);
     if (!map_copy)
-        return (printf("Error\nMemory allocation failed for map copy\n"), 0);
+        return (ft_printf("Error\nMemory allocation failed for map copy\n"), 0);
 
     // Perform flood fill starting from player position
     flood_fill(map_copy, lng->player_y, lng->player_x, &data);

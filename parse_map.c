@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 19:57:37 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:43:48 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int validate_map_elements(t_long *lng)
             else if (lng->map[i][j] == 'C')
                 c++;
             else if (lng->map[i][j] != '0' && lng->map[i][j] != '1')
-                return (printf("Error\nInvalid character '%c' found at row %d, column %d\n",
+                return (ft_printf("Error\nInvalid character '%c' found at row %d, column %d\n",
                                lng->map[i][j], i, j), 0);
             j++;
         }
@@ -58,11 +58,11 @@ int validate_map_elements(t_long *lng)
     }
     lng->collectible_count = c;
     if (p != 1)
-        return (printf("Error\nInvalid number of players (P). Found: %d\n", p), 0);
+        return (ft_printf("Error\nInvalid number of players (P). Found: %d\n", p), 0);
     if (e != 1)
-        return (printf("Error\nInvalid number of exits (E). Found: %d\n", e), 0);
+        return (ft_printf("Error\nInvalid number of exits (E). Found: %d\n", e), 0);
     if (c < 1)
-        return (printf("Error\nNo collectibles (C) found in the map.\n"), 0);
+        return (ft_printf("Error\nNo collectibles (C) found in the map.\n"), 0);
     return (1);
 }
 
@@ -80,14 +80,14 @@ int validate_map_boundaries(t_long *lng)
             while (lng->map[i][j])
             {
                 if (lng->map[i][j] != '1')
-                    return (printf("Error\nMap border not closed at row %d, column %d\n", i, j), 0);
+                    return (ft_printf("Error\nMap border not closed at row %d, column %d\n", i, j), 0);
                 j++;
             }
         }
         else
         {
             if (lng->map[i][0] != '1' || lng->map[i][lng->map_width - 1] != '1')
-                return (printf("Error\nSide walls missing at row %d\n", i), 0);
+                return (ft_printf("Error\nSide walls missing at row %d\n", i), 0);
         }
         i++;
     }
@@ -104,7 +104,7 @@ int validate_map_structure(t_long *lng)
     while (i < lng->map_len)
     {
         if (ft_strlen(lng->map[i]) != len)
-            return (printf("Error\nMap row %d has inconsistent length (%d instead of %d)\n",
+            return (ft_printf("Error\nMap row %d has inconsistent length (%d instead of %d)\n",
                            i, (int)ft_strlen(lng->map[i]), len), 0);
         i++;
     }
@@ -123,7 +123,7 @@ void map_dimensions(t_long *lng, int fd)
         if (line_len == 0 || (line_len == 1 && line[0] == '\n'))
         {
             free(line);
-            printf("Error\nEmpty line found in map\n");
+            ft_printf("Error\nEmpty line found in map\n");
             return;
         }
         if (line[line_len - 1] == '\n')
@@ -138,7 +138,7 @@ void map_dimensions(t_long *lng, int fd)
     {
         lng->map_width = 0;
         lng->map_len = 0;
-        printf("Error\nEmpty map file\n");
+        ft_printf("Error\nEmpty map file\n");
         return;
     }
     lng->map_len = map_len;
@@ -178,11 +178,11 @@ int initialise_validate_map(int ac, char *str, t_long *lng)
     int i;
 
     if (ac != 2 || !check_extension(str))
-        return (printf("Error\nInvalid file name. Must be a .ber file\n"), 1);
+        return (ft_printf("Error\nInvalid file name. Must be a .ber file\n"), 1);
     
     fd = open(str, O_RDONLY);
     if (fd < 0)
-        return (printf("Error\nFailed to open file: %s\n", str), 1);
+        return (ft_printf("Error\nFailed to open file: %s\n", str), 1);
     
     map_dimensions(lng, fd);
     close(fd);
@@ -191,7 +191,7 @@ int initialise_validate_map(int ac, char *str, t_long *lng)
     close(fd);
 
     if (!lng->map)
-        return (printf("Error\nFailed to load map\n"), map_panic_exit(lng, "Invalid map configuration"), 1);
+        return (ft_printf("Error\nFailed to load map\n"), map_panic_exit(lng, "Invalid map configuration"), 1);
     if (!validate_map_structure(lng) || 
         !validate_map_boundaries(lng) || 
         !validate_map_elements(lng))
@@ -231,7 +231,7 @@ void map_panic_exit(t_long *lng, const char *error_msg)
     }
 
     if (error_msg)
-        printf("Error: %s\n", error_msg);
+        ft_printf("Error: %s\n", error_msg);
 
     exit(EXIT_FAILURE);
 }

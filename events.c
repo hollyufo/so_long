@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:33:48 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 19:52:11 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:46:07 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void handle_up(int keycode, t_long *lng)
         if (lng->map[lng->player_y - 1][lng->player_x] == 'E' &&
             lng->collectible_count == 0)
         {
-            printf("done \n");
+            ft_printf("done \n");
             exit(0);
         }
         else if (lng->map[lng->player_y - 1][lng->player_x] == 'E' &&
             lng->collectible_count != 0)
         {
-            printf("need more collectibles\n");
+            ft_printf("\nneed more collectibles\n");
             return;
         }
         if (lng->map[lng->player_y - 1][lng->player_x] == 'C')
@@ -53,13 +53,13 @@ void handle_left(int keycode, t_long *lng)
         if (lng->map[lng->player_y][lng->player_x - 1] == 'E' &&
             lng->collectible_count == 0)
         {
-            printf("done \n");
+            ft_printf("done \n");
             exit(0);
         }
         else if (lng->map[lng->player_y][lng->player_x - 1] == 'E' &&
             lng->collectible_count != 0)
         {
-            printf("need more collectibles\n");
+            ft_printf("\nneed more collectibles\n");
             return;
         }
         if (lng->map[lng->player_y][lng->player_x - 1] == 'C')
@@ -83,13 +83,13 @@ void handle_right(int keycode, t_long *lng)
         if (lng->map[lng->player_y][lng->player_x + 1] == 'E' &&
             lng->collectible_count == 0)
         {
-            printf("done \n");
+            ft_printf("done \n");
             exit(0);
         }
         else if (lng->map[lng->player_y][lng->player_x + 1] == 'E' &&
             lng->collectible_count != 0)
         {
-            printf("need more collectibles\n");
+            ft_printf("\nneed more collectibles\n");
             return;
         }
         if (lng->map[lng->player_y][lng->player_x + 1] == 'C')
@@ -122,13 +122,13 @@ void handle_down(int keycode, t_long *lng)
         if (lng->map[lng->player_y + 1][lng->player_x] == 'E' &&
             lng->collectible_count == 0)
         {
-            printf("done \n");
+            ft_printf("done \n");
             exit(0);
         }
         else if (lng->map[lng->player_y + 1][lng->player_x] == 'E' &&
             lng->collectible_count != 0)
         {
-            printf("need more collectibles\n");
+            ft_printf("\nneed more collectibles\n");
             return;
         }
         if (lng->map[lng->player_y + 1][lng->player_x] == 'C')
@@ -151,7 +151,7 @@ int    handle_keyboard(int keycode, t_long *lng)
     handle_exit(keycode,lng);
     if (keycode == 119 || keycode == 115 || keycode == 97 || keycode == 100)
 		i++;
-	printf("\rMoves:");
-    printf(" %d", i);
+	ft_printf("\rMoves:");
+    ft_printf(" %d", i);
     return 0;
 }

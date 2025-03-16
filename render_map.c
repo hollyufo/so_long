@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 00:43:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 19:44:54 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:43:55 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	load_textures(t_long *lng)
 	lng->floor = malloc(sizeof(t_img));
 	if (!lng->wall || !lng->player || !lng->collectible
 		|| !lng->exit || !lng->floor)
-		return (printf("Error\nFailed to allocate memory for textures\n"), 1);
+		return (ft_printf("Error\nFailed to allocate memory for textures\n"), 1);
 	lng->wall->img = mlx_xpm_file_to_image(lng->mlx, "./textures/wall.xpm",
 			&lng->wall->width, &lng->wall->height);
 	lng->player->img = mlx_xpm_file_to_image(lng->mlx, "./textures/player.xpm",
@@ -34,7 +34,7 @@ int	load_textures(t_long *lng)
 			&lng->floor->width, &lng->floor->height);
 	if (!lng->wall->img || !lng->player->img || !lng->collectible->img
 		|| !lng->exit->img || !lng->floor->img)
-		return (printf("Error\nFailed to load textures\n"), 1);
+		return (ft_printf("Error\nFailed to load textures\n"), 1);
 	return (0);
 }
 
