@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:11:31 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/10 20:21:25 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:16:59 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,39 +69,4 @@ void	ft_putptr_fd(void *ptr, int fd, int *count)
 	address = (unsigned long)ptr;
 	ft_putstr_fd("0x", fd, count);
 	ft_puthex(address, fd, 'x', count);
-}
-
-void	ft_putstr_fd(char *s, int fd, int *count)
-{
-	size_t	i;
-
-	if (!s)
-	{
-		write(fd, "(null)", 6);
-		(*count) = (*count) + 6;
-		return ;
-	}
-	i = 0;
-	while (s[i])
-		i++;
-	(*count) = (*count) + i;
-	write(fd, s, i);
-}
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (i < n && s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	if (i == n)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
