@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/13 00:35:51 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:48:33 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ int         load_textures(t_long *lng);
 void        render_tile(t_long *lng, int x, int y);
 void        render_map(t_long *lng);
 int         mlx_quit(t_long *data);
+void        handle_exit(int keycode, t_long *lng);
 #endif
