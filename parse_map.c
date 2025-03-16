@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/13 00:39:57 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:57:37 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void get_map(t_long *lng, int fd)
         }
         i++;
     }
-    lng->map[i] = NULL; // Null-terminate the array
+    lng->map[i] = NULL;
 }
 
 int initialise_validate_map(int ac, char *str, t_long *lng)
@@ -199,8 +199,6 @@ int initialise_validate_map(int ac, char *str, t_long *lng)
         map_panic_exit(lng, "Invalid map configuration");
         return (1);
     }
-
-    printf("Map validation successful!\n");
     return (0);
 }
 
