@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:33:48 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 21:56:34 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/29 23:31:06 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	handle_up(int keycode, t_long *lng)
 		if (lng->map[lng->player_y - 1][lng->player_x] == 'E' &&
 			lng->collectible_count == 0)
 		{
-			exit(0);
+			exit_game(lng);
 		}
 		else if (lng->map[lng->player_y - 1][lng->player_x] == 'E' &&
 			lng->collectible_count != 0)
@@ -53,7 +53,7 @@ void	handle_left(int keycode, t_long *lng)
 		if (lng->map[lng->player_y][lng->player_x - 1] == 'E' &&
 			lng->collectible_count == 0)
 		{
-			exit(0);
+			exit_game(lng);
 		}
 		else if (lng->map[lng->player_y][lng->player_x - 1] == 'E' &&
 			lng->collectible_count != 0)
@@ -82,7 +82,7 @@ void	handle_right(int keycode, t_long *lng)
 		if (lng->map[lng->player_y][lng->player_x + 1] == 'E' &&
 			lng->collectible_count == 0)
 		{
-			exit(0);
+			exit_game(lng);
 		}
 		else if (lng->map[lng->player_y][lng->player_x + 1] == 'E' &&
 			lng->collectible_count != 0)
@@ -111,7 +111,7 @@ void	handle_down(int keycode, t_long *lng)
 		if (lng->map[lng->player_y + 1][lng->player_x] == 'E' &&
 			lng->collectible_count == 0)
 		{
-			exit(0);
+			exit_game(lng);
 		}
 		else if (lng->map[lng->player_y + 1][lng->player_x] == 'E' &&
 			lng->collectible_count != 0)

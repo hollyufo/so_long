@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 21:48:33 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/29 23:33:40 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int         validate_map_boundaries(t_long *lng);
 int         validate_map_structure(t_long *lng);
 int         initialise_validate_map(int ac, char *str, t_long *lng);
 void        get_map(t_long *lng, int fd);
-void        free_map(char **map, int map_len);
 void        map_panic_exit(t_long *lng, const char *error_msg);
 void        map_dimensions(t_long *lng, int fd);
 char        *ft_strdup(const char *src);
@@ -94,4 +93,10 @@ void        render_tile(t_long *lng, int x, int y);
 void        render_map(t_long *lng);
 int         mlx_quit(t_long *data);
 void        handle_exit(int keycode, t_long *lng);
+void        exit_game(t_long *lng);
+void        free_images(void *mlx, t_img *img);
+void        free_map(char **map);
+void        cleanup(t_long *game);
+
+
 #endif

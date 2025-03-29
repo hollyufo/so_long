@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 21:43:48 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/29 23:33:26 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,7 @@ int initialise_validate_map(int ac, char *str, t_long *lng)
     return (0);
 }
 
-void free_map(char **map, int map_len)
+void free_map_exit(char **map, int map_len)
 {
     int i = 0;
 
@@ -226,7 +226,7 @@ void map_panic_exit(t_long *lng, const char *error_msg)
 {
     if (lng)
     {
-        free_map(lng->map, lng->map_len);
+        free_map_exit(lng->map, lng->map_len);
         free(lng);
     }
 
