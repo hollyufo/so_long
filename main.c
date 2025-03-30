@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/16 21:43:25 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:05:10 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(int ac, char **av)
                 map_panic_exit(lng, "Error\nFailed to create a window"), 1);
     load_textures(lng);
     render_map(lng);
-    mlx_hook(lng->win, DestroyNotify, 0, mlx_quit, &lng);
+    mlx_hook(lng->win, DestroyNotify, 0, exit_wrapper, &lng);
     mlx_key_hook(lng->win, handle_keyboard, lng);
     mlx_loop(lng->mlx);
 

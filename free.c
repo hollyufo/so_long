@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:34:25 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/30 00:10:33 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:04:55 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,9 @@ void exit_game(t_long *game)
 {
     cleanup(game);
     exit(EXIT_SUCCESS);
+}
+int exit_wrapper(t_long *lng)
+{
+    exit_game(lng);
+    return (0);
 }
