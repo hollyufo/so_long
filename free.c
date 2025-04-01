@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:34:25 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/03/30 18:04:55 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:32:30 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,56 +19,52 @@ void	handle_exit(int keycode, t_long *lng)
 		exit_game(lng);
 	}
 }
-void free_images(void *mlx, t_img *img)
+
+void	free_images(void *mlx, t_img *img)
 {
-    if (img)
-    {
-        if (img->img)
-            mlx_destroy_image(mlx, img->img);
-        free(img);
-    }
+	if (img)
+	{
+		if (img->img)
+			mlx_destroy_image(mlx, img->img);
+		free(img);
+	}
 }
 
-void free_map(char **map)
+void	free_map(char **map)
 {
-    int i = 0;
-    if (map)
-    {
-        while (map[i])
-            free(map[i++]);
-        free(map);
-    }
+	int	i;
+
+	i = 0;
+	if (map)
+	{
+		while (map[i])
+			free(map[i++]);
+		free(map);
+	}
 }
 
-void cleanup(t_long *game)
+void	cleanup(t_long *game)
 {
-    if (!game)
-        return;
-    
-    free_map(game->map);
-    free_images(game->mlx, game->wall);
-    free_images(game->mlx, game->player);
-    free_images(game->mlx, game->collectible);
-    free_images(game->mlx, game->exit);
-    free_images(game->mlx, game->floor);
-    
-    if (game->win)
-        mlx_destroy_window(game->mlx, game->win);
-    if (game->mlx)
-    {
-        mlx_destroy_display(game->mlx);
-        free(game->mlx);
-    }
-    free(game);
+	if (!game)
+		return ;
+	free_map(game->map);
+	free_images(game->mlx, game->wall);
+	free_images(game->mlx, game->player);
+	free_images(game->mlx, game->collectible);
+	free_images(game->mlx, game->exit);
+	free_images(game->mlx, game->floor);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
+	free(game);
 }
 
-void exit_game(t_long *game)
+void	exit_game(t_long *game)
 {
-    cleanup(game);
-    exit(EXIT_SUCCESS);
-}
-int exit_wrapper(t_long *lng)
-{
-    exit_game(lng);
-    return (0);
+	cleanup(game);
+	exit(EXIT_SUCCESS);
 }
