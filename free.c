@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:34:25 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/01 17:32:30 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:57:42 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	free_map(char **map)
 		while (map[i])
 			free(map[i++]);
 		free(map);
+		map = NULL;
 	}
 }
 
