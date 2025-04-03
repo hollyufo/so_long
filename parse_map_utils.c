@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 22:10:40 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/01 18:04:31 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/03 15:08:29 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,40 @@ int	initialise_validate_map(int ac, char *str, t_long *lng)
 	return (0);
 }
 
-int	exit_wrapper(t_long *lng)
+int	check_extension(char *filename)
 {
-	exit_game(lng);
-	return (0);
+	int	len;
+
+	len = ft_strlen(filename);
+	if (len < 5)
+		return (0);
+	return (ft_strncmp(filename + len - 4, ".ber", 4) == 0);
+}
+
+int	validate_map_boundaries(t_long *lng)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < lng->map_len)
+	{
+		j = 0;
+		if (i == 0 || i == lng->map_len - 1)
+		{
+			while (lng->map[i][j])
+			{
+				if (lng->map[i][j] != '1')
+					return (ft_printf("Error\nBorder not closed"), 0);
+				j++;
+			}
+		}
+		else
+		{
+			if (lng->map[i][0] != '1' || lng->map[i][lng->map_width - 1] != '1')
+				return (ft_printf("Error\nSide walls missing"), 0);
+		}
+		i++;
+	}
+	return (1);
 }
