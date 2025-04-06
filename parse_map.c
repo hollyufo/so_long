@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:23:08 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/03 15:07:29 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:20:42 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	validate_map_elements(t_long *lng)
 
 int	validate_map_structure(t_long *lng)
 {
-	int	i;
-	int	len;
+	int		i;
+	size_t	len;
 
 	i = 0;
 	len = ft_strlen(lng->map[0]);

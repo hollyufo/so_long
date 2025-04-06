@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 22:10:40 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/03 15:08:29 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/06 15:17:08 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	get_map(t_long *lng, int fd)
 int	initialise_validate_map(int ac, char *str, t_long *lng)
 {
 	int	fd;
-	int	i;
 
 	if (ac != 2 || !check_extension(str))
 		return (ft_printf("Error\nInvalid file name. Must be a .ber file\n"),
