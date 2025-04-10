@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 00:34:25 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/01 17:57:42 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:45:29 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ void	free_images(void *mlx, t_img *img)
 	}
 }
 
-void	free_map(char **map)
+void	free_map(char **map, t_long *lng)
 {
 	int	i;
 
 	i = 0;
 	if (map)
 	{
-		while (map[i])
-			free(map[i++]);
+		while (i < lng->map_len)
+		{
+			free(map[i]);
+			i++;
+		}
 		free(map);
 		map = NULL;
 	}
@@ -48,7 +51,7 @@ void	cleanup(t_long *game)
 {
 	if (!game)
 		return ;
-	free_map(game->map);
+	free_map(game->map, game);
 	free_images(game->mlx, game->wall);
 	free_images(game->mlx, game->player);
 	free_images(game->mlx, game->collectible);

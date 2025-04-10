@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:54:57 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/01 17:56:10 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:46:46 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,6 @@ int	is_valid_path(t_long *lng)
 		return (ft_printf("Error\nMemory allocation failed for map copy\n"), 0);
 	flood_fill(map_copy, lng->player_y, lng->player_x, &data);
 	result = (data.collected == lng->collectible_count && data.exit_found);
-	free_map(map_copy);
+	free_map(map_copy, lng);
 	return (result);
 }

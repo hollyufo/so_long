@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:22 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/03 14:55:58 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:56:17 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,10 @@ void		render_map(t_long *lng);
 void		handle_exit(int keycode, t_long *lng);
 void		exit_game(t_long *lng);
 void		free_images(void *mlx, t_img *img);
-void		free_map(char **map);
+void		free_map(char **map, t_long *lng);
 void		cleanup(t_long *game);
 int			exit_wrapper(t_long *lng);
 void		process_map_line(t_long *lng, char *line, int *map_len);
+void	free_texture(t_img *texture, void *mlx);
 
 #endif
