@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:19 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/10 21:43:14 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:47:21 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	start_game(t_long *lng)
 	if (load_textures(lng))
 	{
 		exit_game(lng);
-		return;
+		return ;
 	}
 	render_map(lng);
 	mlx_hook(lng->win, DestroyNotify, 0, exit_wrapper, lng);

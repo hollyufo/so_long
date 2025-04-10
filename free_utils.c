@@ -6,7 +6,7 @@
 /*   By: imchaibi <imchaibi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 22:11:40 by imchaibi          #+#    #+#             */
-/*   Updated: 2025/04/10 20:58:41 by imchaibi         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:47:11 by imchaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,4 @@ int	exit_wrapper(t_long *lng)
 {
 	exit_game(lng);
 	return (0);
-}
-
-void	free_texture(t_img *texture, void *mlx)
-{
-	if (!texture)
-		return;
-	if (texture->img)
-		mlx_destroy_image(mlx, texture->img);
-	free(texture);
 }
